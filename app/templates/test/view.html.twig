@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    View item
+{% endblock %}
+
+{% block body %}
+    <h1>View item</h1>
+    {% if item is defined and item|length %}
+        <dl>
+            <dt>Id</dt>
+            <dd>{{ item.id }}</dd>
+            <dt>Title</dt>
+            <dd>{{ item.title }}</dd>
+            <dt>Tags</dt>
+            <dd>{{ item.tags|join(', ') }}</dd>
+        </dl>
+        <a href="{{ url('test_index') }}"
+           title="back to the list">back to the list</a>
+    {% else %}
+        <p>
+            Item not found.
+        </p>
+    {% endif %}
+{% endblock %}
